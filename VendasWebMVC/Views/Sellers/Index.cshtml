@@ -6,9 +6,8 @@
 <h2>@ViewData["Title"]</h2>
 
 <p>
-    <a asp-action="Create" class="btn btn-success">Crear novo</a> 
+    <a asp-action="Create" class="btn btn-success">Crear novo</a>
 </p>
-
 <table class="table table-striped table-hover">
     <thead>
         <tr class="info">
@@ -29,28 +28,33 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var item in Model)
+        @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BirthDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BaseSalary)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
-                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detalhes</a>
-                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Deletar</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BaseSalary)
+                </td>
+                <td align="right" width="150px">
+                    <div style="position:relative; display:inline-block; width:30px; height:30px;">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="fa fa-pencil" aria-hidden="true" style="color: #f39c12; font-size:18px; text-decoration: none"></a>
+                    </div>
+                    <div style="position:relative; margin-left:10px; display:inline-block; width:30px; height:30px;">
+                        <a asp-action="Details" asp-route-id="@item.Id" class="fa fa-search" aria-hidden="true" style="color: #3498db; font-size: 18px; text-decoration: none"></a>
+                    </div>
+                    <div style="position:relative; margin-left:10px; display:inline-block; width:30px; height:30px;">
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="fa fa-times" aria-hidden="true" style="color: #e74c3c; font-size: 22px; text-decoration: none;"></a>
+                    </div>
+                </td>
+            </tr>
         }
     </tbody>
-
 </table>
