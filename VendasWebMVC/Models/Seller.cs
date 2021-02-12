@@ -9,18 +9,25 @@ namespace VendasWebMVC.Models
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "{0} deve ter tamanho estar entre {2} e {1}")]
         [Display(Name = "Nome")]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        [EmailAddress(ErrorMessage = "Entre com Email válido")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Display(Name="Aniversário")]
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        [Display(Name = "Aniversário")]
         [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
 
-        [Display(Name = "Salário Base")]
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        [Range(100, 50000, ErrorMessage = "{0} deve estar entre{1} e {2}")]
         [DataType(DataType.Currency)]
+        [Display(Name = "Salário Base")]
         public double BaseSalary { get; set; }
 
         [Display(Name = "Departamento")]
